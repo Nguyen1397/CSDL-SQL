@@ -14,11 +14,10 @@ CREATE TABLE Kho
 	TonKho VARCHAR(5),
 )
 GO
-INSERT Kho VALUES (1,N'Máy tính T450',N'Máy nhập mới','Chiếc',1000,50)
-INSERT Kho VALUES (2,N'Điện thoại Nokia5670',N'Điện thoại đang hot','Chiếc',200,130)
-INSERT Kho VALUES (3,N'Máy Tính T450',N'Máy nhập mới','Chiếc',100,23)
+INSERT Kho VALUES (1,N'Máy tính T450',N'Máy nhập mới',N'Chiếc',1000,50)
+INSERT Kho VALUES (2,N'Điện thoại Nokia5670',N'Điện thoại đang hot',N'Chiếc',200,130)
+INSERT Kho VALUES (3,N'Máy Tính T450',N'Máy nhập mới',N'Chiếc',100,23)
 GO
-
 
 CREATE TABLE KhachHang
 (
@@ -49,4 +48,14 @@ CREATE TABLE ChiTietDH
 	SL VARCHAR(5)
 )
 GO
+INSERT ChiTietDH VALUES (123,1,N'Máy tính T450',1000,1)
+INSERT ChiTietDH VALUES (123,2,N'Điện thoại Nokia5670',200,2)
+INSERT ChiTietDH VALUES (123,3,N'Máy Tính T450',100,1)
+GO
+DELETE Kho
+DELETE ChiTietDH
 
+SELECT * FROM Kho
+SELECT * FROM KhachHang
+SELECT * FROM DonHang
+SELECT * FROM ChiTietDH
