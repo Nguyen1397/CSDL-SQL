@@ -21,7 +21,7 @@ GO
 CREATE TABLE Product
 (
 	F_ID VARCHAR(5) FOREIGN KEY REFERENCES Firm(F_ID),
-	Name NVARCHAR(50),
+	Name NVARCHAR(50) PRIMARY KEY,
 	Des NVARCHAR(30),
 	Unit NVARCHAR(10),
 	Price Money,
@@ -70,8 +70,8 @@ SELECT COUNT(*) FROM Firm
 ----B
 SELECT COUNT(*) FROM Product
 ----C
-SELECT F.F_Name, COUNT(P.F_ID) FROM Firm AS F, Product AS P
-
+SELECT F.F_Name, COUNT(*) FROM Firm AS F, Product AS P
+ORDER BY F.F_ID
 ----D
 SELECT COUNT(Amt) FROM Product
 
