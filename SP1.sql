@@ -70,8 +70,7 @@ SELECT COUNT(*) FROM Firm
 ----B
 SELECT COUNT(*) FROM Product
 ----C
-SELECT F.F_Name, COUNT(*) FROM Firm AS F, Product AS P
-ORDER BY F.F_ID
+
 ----D
 SELECT COUNT(Amt) FROM Product
 
