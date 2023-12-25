@@ -27,6 +27,9 @@ CREATE TABLE KhachHang
 )
 GO
 INSERT KhachHang VALUES (N'Nguyễn Văn An',N'111 Nguyễn Trãi, Thanh Xuân, Hà Nội',987654321)
+INSERT KhachHang VALUES (N'Nguyễn Văn B',N'112 Nguyễn Trãi, Thanh Xuân, Hà Nội',987654322)
+INSERT KhachHang VALUES (N'Nguyễn Thị C',N'113 Nguyễn Trãi, Thanh Xuân, Hà Nội',987654323)
+
 GO
 
 CREATE TABLE DonHang
@@ -37,6 +40,7 @@ CREATE TABLE DonHang
 )
 GO
 INSERT DonHang VALUES (123,N'Nguyễn Văn An','20091118')
+INSERT DonHang VALUES (124,N'Nguyễn Văn B','20091122')
 GO
 
 CREATE TABLE ChiTietDH
@@ -51,6 +55,10 @@ GO
 INSERT ChiTietDH VALUES (123,1,N'Máy tính T450',1000,1)
 INSERT ChiTietDH VALUES (123,2,N'Điện thoại Nokia5670',200,2)
 INSERT ChiTietDH VALUES (123,3,N'Máy in Samsung 450',100,1)
+
+INSERT ChiTietDH VALUES (124,1,N'Máy tính T450',1000,2)
+INSERT ChiTietDH VALUES (124,2,N'Điện thoại Nokia5670',200,2)
+INSERT ChiTietDH VALUES (124,3,N'Máy in Samsung 450',100,1)
 GO
 DELETE Kho
 DELETE ChiTietDH
@@ -60,10 +68,36 @@ FROM DonHang AS DH, KhachHang AS KH
 
 SELECT K.TenSP, K.MoTa, K.DonVi, K.Gia, CT.SL, K.Gia * CT.SL AS ThanhTien
 FROM Kho AS K, ChiTietDH AS CT 
-WHERE K.TenSP = CT.TenSP AND K.ID_SP = CT.MaSP
+WHERE K.TenSP = CT.TenSP AND K.ID_SP = CT.MaSP AND MaDH = 124
 --4
 ----A
+SELECT KH.* FROM KhachHang AS KH, DonHang AS DH
+WHERE KH.TenKH = DH.TenKH AND DH.MaDH > 0
+----B
+SELECT * FROM Kho
+----C
+SELECT * FROM DonHang
 
+--5
+----A
+SELECT * FROM KhachHang
+WHERE TenKH >= N'A%' AND TenKH <= N'Z%'
+----B
+SELECT * FROM Kho
+ORDER BY Gia DESC
+----C
+SELECT * FROM DonHang
+WHERE TenKH = N'Nguyễn Văn An'
+
+--6
+----A
+SELECT COUNT(*) AS N'SL KH đã mua' FROM DonHang AS DH, KhachHang AS KH
+WHERE DH.TenKH = KH.TenKH
+----B
+SELECT COUNT(*) FROM Kho
+----C
+SELECT Sum(Gia * SL) FROM ChiTietDH
+WHERE MaDH = 123
 
 DROP TABLE Kho
 DROP TABLE KhachHang
