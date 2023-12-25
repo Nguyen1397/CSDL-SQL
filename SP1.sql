@@ -46,6 +46,7 @@ SELECT * FROM Firm
 	SELECT F_Name FROM Firm
 ----B
 	SELECT Name FROM Product
+
 --5
 ----A
 SELECT * FROM Firm
@@ -63,6 +64,16 @@ WHERE Amt < 11
 SELECT * FROM Product
 WHERE F_ID = 123
 
+--6
+----A
+SELECT COUNT(*) FROM Firm
+----B
+SELECT COUNT(*) FROM Product
+----C
+SELECT F.F_Name, COUNT(P.F_ID) FROM Firm AS F, Product AS P
+WHERE 
+----D
+SELECT COUNT(Amt) FROM Product
 
 
 DROP TABLE Product
