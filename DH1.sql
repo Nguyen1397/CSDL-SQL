@@ -16,7 +16,7 @@ CREATE TABLE Kho
 GO
 INSERT Kho VALUES (1,N'Máy tính T450',N'Máy nhập mới',N'Chiếc',1000,50)
 INSERT Kho VALUES (2,N'Điện thoại Nokia5670',N'Điện thoại đang hot',N'Chiếc',200,130)
-INSERT Kho VALUES (3,N'Máy Tính T450',N'Máy nhập mới',N'Chiếc',100,23)
+INSERT Kho VALUES (3,N'Máy in Samsung 450',N'Máy in đang ế',N'Chiếc',100,23)
 GO
 
 CREATE TABLE KhachHang
@@ -50,9 +50,10 @@ CREATE TABLE ChiTietDH
 GO
 INSERT ChiTietDH VALUES (123,1,N'Máy tính T450',1000,1)
 INSERT ChiTietDH VALUES (123,2,N'Điện thoại Nokia5670',200,2)
-INSERT ChiTietDH VALUES (123,3,N'Máy Tính T450',100,1)
+INSERT ChiTietDH VALUES (123,3,N'Máy in Samsung 450',100,1)
 GO
-
+DELETE Kho
+DELETE ChiTietDH
 --2
 SELECT DH.MaDH, KH.*, DH.NgayDH 
 FROM DonHang AS DH, KhachHang AS KH
@@ -61,6 +62,7 @@ SELECT K.TenSP, K.MoTa, K.DonVi, K.Gia, CT.SL, K.Gia * CT.SL AS ThanhTien
 FROM Kho AS K, ChiTietDH AS CT 
 WHERE K.TenSP = CT.TenSP AND K.ID_SP = CT.MaSP
 --4
+----A
 
 
 DROP TABLE Kho
