@@ -71,7 +71,7 @@ SELECT COUNT(*) FROM Firm
 SELECT COUNT(*) FROM Product
 ----C
 SELECT F.F_Name, COUNT(P.F_ID) FROM Firm AS F, Product AS P
-WHERE 
+
 ----D
 SELECT COUNT(Amt) FROM Product
 
