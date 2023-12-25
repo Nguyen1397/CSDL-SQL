@@ -96,7 +96,7 @@ WHERE DH.TenKH = KH.TenKH
 ----B
 SELECT COUNT(*) FROM Kho
 ----C
-SELECT Sum(Gia * SL) FROM ChiTietDH
+SELECT Sum(Gia * SL) AS TongTien FROM ChiTietDH
 WHERE MaDH = 123
 
 DROP TABLE Kho
