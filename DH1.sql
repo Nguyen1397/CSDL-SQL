@@ -1,4 +1,4 @@
-CREATE DATABASE HoaDon
+﻿CREATE DATABASE HoaDon
 GO
 
 USE HoaDon
@@ -14,6 +14,11 @@ CREATE TABLE Kho
 	TonKho VARCHAR(5),
 )
 GO
+INSERT Kho VALUES (1,N'Máy tính T450',N'Máy nhập mới','Chiếc',1000,50)
+INSERT Kho VALUES (2,N'Điện thoại Nokia5670',N'Điện thoại đang hot','Chiếc',200,130)
+INSERT Kho VALUES (3,N'Máy Tính T450',N'Máy nhập mới','Chiếc',100,23)
+GO
+
 
 CREATE TABLE KhachHang
 (
@@ -22,6 +27,8 @@ CREATE TABLE KhachHang
 	SDT VARCHAR(12),
 )
 GO
+INSERT KhachHang VALUES (N'Nguyễn Văn An',N'111 Nguyễn Trãi, Thanh Xuân, Hà Nội',987654321)
+GO
 
 CREATE TABLE DonHang
 (
@@ -29,6 +36,8 @@ CREATE TABLE DonHang
 	TenKH NVARCHAR(20) FOREIGN KEY REFERENCES KhachHang(TenKH),
 	NgayDH DATE
 )
+GO
+INSERT DonHang VALUES (123,N'Nguyễn Văn An','20091118')
 GO
 
 CREATE TABLE ChiTietDH
