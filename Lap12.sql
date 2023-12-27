@@ -1,0 +1,44 @@
+CREATE DATABASE CitySoftware
+GO
+
+USE CitySoftware
+GO
+
+CREATE TABLE Employee
+(
+	EmployeeID INT PRIMARY KEY,
+	Name VARCHAR(100),
+	Tel CHAR(11),
+	Email VARCHAR(30)
+)
+GO
+
+CREATE TABLE Project
+(
+	ProjectID INT PRIMARY KEY,
+	ProjectName VARCHAR(30),
+	StartDate DATETIME,
+	EndDate DATETIME,
+	Period INT,
+	Cost MONEY
+)
+GO
+
+CREATE TABLE Groups
+(
+	GroupID INT PRIMARY KEY,
+	GroupName VARCHAR(30),
+	LeaderID INT FOREIGN KEY REFERENCES Employee(EmployeeID),
+	ProjectID INT FOREIGN KEY REFERENCES Project(ProjectID)
+)
+GO
+
+CREATE TABLE GroupDetail
+(
+	GroupID INT FOREIGN KEY REFERENCES Groups(GroupID),
+	EmployeeID INT FOREIGN KEY REFERENCES Employee(EmployeeID),
+	Status CHAR(20)
+)
+GO
+
+INSERT Employee VALUES ()
