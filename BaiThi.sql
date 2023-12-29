@@ -42,6 +42,7 @@ GO
 --4
 UPDATE Employee
 SET Salary = Salary * 1.1
+GO
 
 --5
 ALTER TABLE Employee
